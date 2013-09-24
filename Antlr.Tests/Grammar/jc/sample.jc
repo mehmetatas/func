@@ -1,0 +1,66 @@
+user : person {
+	number id;
+	string username;
+	string password;
+	bool isOk = false;
+		
+	global {
+		number q;
+
+		function create(string uid, string pwd) {
+			var user = user.new();
+			user.username = uid;
+			user.password = pwd;
+			user.id = 0;
+			return user;
+		}
+	}
+
+	function save() {
+		
+	}
+}
+
+global {
+	number n = 4.5;
+	datetime dt = 2012-04-26 23:32:12;
+	date d = 2012-04-26;
+	time t = 23:32:12;
+	string s = "deneme test ýþiði";
+
+	function f(number x, string s, datetime dt) {
+		if (true) {
+			return null;
+		}
+	}
+}
+
+
+person {
+	global {
+			
+	}
+
+	string name;
+	string surname;
+	date dateOfBirth;
+	
+	function new() {
+		
+	}
+	
+	number age {
+		get {
+			return now();
+		}
+		set {
+			dateOfBirth = value;
+		}
+	}
+	
+	string fullname {
+		get {
+			return name;
+		}
+	}
+}

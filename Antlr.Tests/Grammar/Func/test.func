@@ -1,0 +1,180 @@
+
+print(crop("Eş", 3));
+print(crop("Kın", 3));
+print(crop("Mehmet", 3));
+
+function($crop, string(), string($s), number($n), body(
+	string($res, ""),
+	if (
+		case(lt(length($s), $n),
+			set($res, $s)
+		),
+		default(
+			set($res, substr($s, 0, $n))
+		)
+	),
+	return($res)
+));
+
+
+/*
+
+number($i, 1);
+number($j, -20);
+number($n, 12.34);
+number($m, -12.34);
+string($str, "test");
+bool($b1, true);
+bool($b2, false);
+date($d1, 2012-12-11);
+time($d2, 12:34:56);
+datetime($d3, 2012-12-11 12:34:56);
+
+new($user, user());
+set($user.fullname, "Mehmet Yılmaz");
+$user.toString();
+
+new($user2, user("Mehmet Ali", "Yılmaz"));
+new($user3, create(user(), "Mehmet Ali", "Yılmaz"));
+
+new($userList, list(user()));
+
+$userList.add($user);
+$userList.insert($user, 2);
+$userList.remove($user);
+$userList.removeAt(2);
+$userList.clear();
+
+save("Mehmet", $user);
+user.create(f(), $user.toString("Ali"), 12, true, $x, user.test());
+$userList.add($user);
+
+body(
+	if (
+		case(or(lt($user.name.length(), 10), 
+				in($user.fullname, "ali", "murat", "ayşe")),
+			sys.print("you are not allowed")
+		),
+		case(lt ($user.age, 25),
+			print("you may be allowed")
+		),
+		default(
+			print("you are allowed")
+		)
+	)
+);
+
+struct($money,
+	private(
+		number($amount),
+		string($currency)
+	),
+	public(
+		method($toString, body(
+			return(sum($amount, " ", $currency))
+		))
+	)
+);
+
+class($user, extends(entity()), implements(iserializable(), ienumerable()),
+	private(
+		string($name), 
+		string($surname)
+	),
+	protected(
+		method($save, void(), body(
+			new($db, db("Server=localhost;Database=func;uid=sa;pwd=1234")),
+			connect($db),
+			
+			string($sql, "insert into users (name, surname) values (@p_name, @p_surname)"),
+			
+			new($command, createCommand($db, $sql)),
+			addParam($command, "@p_name", $this.name),
+			addParam($command, "@p_surname", $this.surname),
+			execute($command),
+			close($db)
+		))
+	),
+	public(
+		new(), // new(body()),
+		new(string($name), string($surname), body(
+			set($this.name, $name),
+			set($this.surname, $surname)
+		)),
+		property($fullname, string(),
+			get(
+				return(
+					concat($name, " ", $surname)
+				)
+			),
+			set(
+				new($vals, split(value(), " ")),
+				set($name, at($vals, 0)),
+				set($surname, at($vals, 1))
+			)
+		),
+		property($nameProperty, string(),
+			get(
+				return($name)
+			),
+			private(set(
+				set($name, value())
+			))
+		),
+		override(method($toString, string(), body(
+			return(sum($name, " ", $surname, base($toString)))
+		))),		
+		function($create, user(), string($name), string($surname), body(
+			new($user, user()),
+			set($user.name, $name),
+			set($surname.name, $surname),
+			return($user)
+		))
+	)
+);
+
+class ($utils,
+	function($substr3, string(), string($arg), number($start), body(
+			return(
+				substr($arg, $start, 3)
+			)
+		)
+	)
+);
+
+function($test, string(), user($user), string($token), body(
+	number($i, 0),
+	string($result, ""),
+	while ( lt($i, 10), 
+		if (
+			case (eq(mod($i, 2), 0),
+				continue()
+			),
+			case(eq(substr3(util(), $user.name, $i), $token),
+				set($result, $token),
+				break()
+			)
+		),
+		set($i, sum($i, 1))
+	),
+	for(number($i, 0), lt ($i, 10), set($i, sum($i, 1)),
+		if (
+			case (eq(mod($i, 2), 0),
+				continue()
+			),
+			case(eq(substr3(util(), $user.name, $i), $token),
+				set($result, $token),
+				break()
+			)
+		)
+	),
+	if (
+		case(eq($ressult, ""),
+			return(null())),
+		default(
+			return($result))
+	)
+));
+*/
+// test
+/* comment */
